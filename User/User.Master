@@ -18,7 +18,7 @@
     <meta name="author" content="" />
     <link rel="shortcut icon" href="../TemplateFiles/images/favicon.png" type="">
 
-    <title>Feane </title>
+    <title>Burgerizza </title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="../TemplateFiles/css/bootstrap.css" />
@@ -34,6 +34,25 @@
     <link href="../TemplateFiles/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="../TemplateFiles/css/responsive.css" rel="stylesheet" />
+    <!-- jQery -->
+    <script src="../TemplateFiles/js/jquery-3.4.1.min.js"></script>
+
+    <script>
+        $(function () {
+            //this will get the full URL at the address bar
+            var url = window.location.href;
+
+            //passes on every "a" tag
+            $("#navbarSupportedContent a").each(function () {
+
+                //check if its the same on the address bar
+                if (url == (this.href)) {
+                    $(this).closest("li").addClass("active");
+                }
+            });
+        });
+    </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -42,14 +61,14 @@
 
         <div class="hero_area">
             <div class="bg-box">
-                <img src="../TemplateFiles/images/hero-bg.jpg" alt="">
+                <img src="../TemplateFiles/images/Back.jpeg" alt="">
             </div>
-            <!-- header section strats -->
+            <!-- header section starts -->
             <header class="header_section">
                 <div class="container">
                     <nav class="navbar navbar-expand-lg custom_nav-container ">
-                        <a class="navbar-brand" href="index.html">
-                            <span>Feane
+                        <a class="navbar-brand" href="Default.aspx">
+                            <span>Burgerizza
                             </span>
                         </a>
 
@@ -59,8 +78,8 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav  mx-auto ">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="Default.aspx">Home <span class="sr-only">(current)</span></a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Default.aspx">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="Menu.aspx">Menu</a>
@@ -73,10 +92,14 @@
                                 </li>
                             </ul>
                             <div class="user_option">
-                                <a href="" class="user_link">
+
+                                <asp:LinkButton ID="lbRegisterOrProfile" runat="server" CssClass="user_link" OnClick="lbRegisterOrProfile_Click" CausesValidation="false">
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                </a>
-                                <a class="cart_link" href="#">
+                                </asp:LinkButton>
+                                <%--<a href="" class="user_link">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>--%>
+                                <a class="cart_link" href="Cart.aspx">
                                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background: new 0 0 456.029 456.029;" xml:space="preserve">
                                         <g>
                                             <g>
@@ -129,21 +152,26 @@
                                         <g>
                                         </g>
                                     </svg>
+                                    <span class="badge rounded-pill bg-warning mb-4">
+                                        <% Response.Write(Session["cartCount"]); %>
+                                    </span>
                                 </a>
-                                <form class="form-inline">
+                                <div class="form-inline">
                                     <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                     </button>
-                                </form>
-                                <a href="" class="order_online">Order Online
-                                </a>
+                                </div>
+                                <%--<a href="" class="order_online">Order Online
+                                </a>--%>
+                                <asp:LinkButton ID="lbLoginOrLogout" runat="server" CssClass="order_online" CausesValidation="false"
+                                    OnClick="lbLoginOrLogout_Click"></asp:LinkButton>
                             </div>
                         </div>
                     </nav>
                 </div>
             </header>
             <!-- end header section -->
-            
+
             <!-- slider section -->
             <asp:Panel ID="pnlsliderUC" runat="server"></asp:Panel>
             <!-- end slider section -->
@@ -160,19 +188,19 @@
                             <h4>Contact Us
                             </h4>
                             <div class="contact_link_box">
-                                <a href="">
+                                <a href="https://goo.gl/maps/F1cAUUsq4zWrqM5d9">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <span>Location
                                     </span>
                                 </a>
                                 <a href="">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <span>Call +01 1234567890
+                                    <span>Call +94123456789
                                     </span>
                                 </a>
                                 <a href="">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span>demo@gmail.com
+                                    <span>burgerizza@gmail.com
                                     </span>
                                 </a>
                             </div>
@@ -180,10 +208,10 @@
                     </div>
                     <div class="col-md-4 footer-col">
                         <div class="footer_detail">
-                            <a href="" class="footer-logo">Feane
+                            <a href="" class="footer-logo">Burgerizza
                             </a>
                             <p>
-                                Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+                                Unleash your taste buds with our pizza-burger-pasta fusion!
                             </p>
                             <div class="footer_social">
                                 <a href="">
@@ -217,11 +245,8 @@
                 </div>
                 <div class="footer-info">
                     <p>
-                        &copy; <span id="displayYear"></span>All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br>
+                        &copy; <span id="displayYear"></span> All Rights Reserved.<br>
                         <br>
-                        &copy; <span id="displayYear"></span>Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
                     </p>
                 </div>
             </div>
@@ -229,8 +254,7 @@
 
     </form>
 
-    <!-- jQery -->
-    <script src="../TemplateFiles/js/jquery-3.4.1.min.js"></script>
+
     <!-- popper js -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>

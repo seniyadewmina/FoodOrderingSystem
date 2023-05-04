@@ -31,7 +31,8 @@ body {
   font-size: 0.875em;
   overflow-x: hidden;
   color: #353c4e;
-  font-family: "Open Sans", sans-serif; }
+  font-family: "Open Sans", sans-serif;
+  }
 
 ul {
   padding-left: 0;
@@ -760,7 +761,8 @@ a.bg-danger:hover {
 .table-border-style {
   padding: 0; }
   .table-border-style .table {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    }
 
 .table > thead > tr > th {
   border-bottom-color: #ccc; }
@@ -8564,7 +8566,8 @@ div.dt-autofill-list div.dt-autofill-button button {
   border-color: #4680ff; }
 
 table.dataTable {
-  border-collapse: collapse !important; }
+  border-collapse: collapse !important;
+  }
 
 table.dataTable tbody > tr.selected,
 table.dataTable tbody > tr > .selected {
@@ -11216,7 +11219,8 @@ table.footable-paging-center > tfoot > tr.footable-paging > td {
   background-color: #303548; }
 
 .danger-breadcrumb {
-  background-color: #FC6180; }
+  background-color: #303549;
+  }
 
 .info-breadcrumb {
   background-color: #62d1f3; }

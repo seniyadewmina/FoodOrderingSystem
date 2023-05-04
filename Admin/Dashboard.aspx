@@ -3,6 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    sdsg
+    <h3>Dashboard</h3>
     
 </asp:Content>

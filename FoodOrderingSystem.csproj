@@ -1,5 +1,4 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -43,6 +42,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -62,11 +64,30 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Admin\assets\datatables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Admin\assets\datatables\css\icon-font.min.css" />
+    <Content Include="Admin\assets\datatables\css\jquery.dataTables.min.css" />
+    <Content Include="Admin\assets\datatables\css\responsive.bootstrap4.min.css" />
+    <Content Include="Admin\assets\datatables\css\responsive.dataTables.min.css" />
+    <Content Include="Admin\assets\datatables\images\sort_asc.png" />
+    <Content Include="Admin\assets\datatables\images\sort_asc_disabled.png" />
+    <Content Include="Admin\assets\datatables\images\sort_both.png" />
+    <Content Include="Admin\assets\datatables\images\sort_desc.png" />
+    <Content Include="Admin\assets\datatables\images\sort_desc_disabled.png" />
+    <Content Include="Admin\assets\datatables\js\buttons.bootstrap4.min.js" />
+    <Content Include="Admin\assets\datatables\js\buttons.flash.min.js" />
+    <Content Include="Admin\assets\datatables\js\buttons.html5.min.js" />
+    <Content Include="Admin\assets\datatables\js\buttons.print.min.js" />
+    <Content Include="Admin\assets\datatables\js\datatable-setting.js" />
+    <Content Include="Admin\assets\datatables\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Admin\assets\datatables\js\dataTables.buttons.min.js" />
+    <Content Include="Admin\assets\datatables\js\dataTables.responsive.min.js" />
+    <Content Include="Admin\assets\datatables\js\jquery.dataTables.min.js" />
+    <Content Include="Admin\assets\datatables\js\jszip.min.js" />
+    <Content Include="Admin\assets\datatables\js\pdfmake.min.js" />
+    <Content Include="Admin\assets\datatables\js\responsive.bootstrap4.min.js" />
+    <Content Include="Admin\assets\datatables\js\vfs_fonts.js" />
+    <Content Include="Admin\Category.aspx" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\assets\css\animate.css\css\animate.css" />
     <Content Include="Admin\assets\css\bootstrap\css\bootstrap.min.css" />
@@ -154,6 +175,8 @@
     <Content Include="Admin\assets\pages\widget\amchart\serial.min.js" />
     <Content Include="Admin\assets\pages\widget\amchart\worldLow.js" />
     <Content Include="Admin\assets\pages\widget\amchart\worldLow.min.js" />
+    <Content Include="Admin\Product.aspx" />
+    <Content Include="Admin\Users.aspx" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="TemplateFiles\css\bootstrap.css" />
@@ -180,9 +203,15 @@
     <Content Include="TemplateFiles\js\custom.js" />
     <Content Include="TemplateFiles\js\jquery-3.4.1.min.js" />
     <Content Include="User\About.aspx" />
+    <Content Include="User\Cart.aspx" />
     <Content Include="User\Contact.aspx" />
     <Content Include="User\Default.aspx" />
+    <Content Include="User\Invoice.aspx" />
+    <Content Include="User\Login.aspx" />
     <Content Include="User\Menu.aspx" />
+    <Content Include="User\Payment.aspx" />
+    <Content Include="User\Profile.aspx" />
+    <Content Include="User\Registration.aspx" />
     <Content Include="User\SliderUserControl.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -194,6 +223,13 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,6 +237,21 @@
     <Compile Include="Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connection.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +262,13 @@
     </Compile>
     <Compile Include="User\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -225,6 +283,41 @@
     </Compile>
     <Compile Include="User\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Invoice.aspx.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Invoice.aspx.designer.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\SliderUserControl.ascx.cs">
       <DependentUpon>SliderUserControl.ascx</DependentUpon>
@@ -256,13 +349,17 @@
     <Content Include="Admin\assets\icon\themify-icons\fonts\themify.eot" />
     <Content Include="Admin\assets\icon\themify-icons\fonts\themify.ttf" />
     <Content Include="Admin\assets\icon\themify-icons\fonts\themify.woff" />
-    <None Include="packages.config" />
     <Content Include="TemplateFiles\css\style.css.map" />
     <Content Include="TemplateFiles\css\style.scss" />
     <Content Include="TemplateFiles\fonts\fontawesome-webfont.ttf" />
     <Content Include="TemplateFiles\fonts\fontawesome-webfont.woff" />
     <Content Include="TemplateFiles\fonts\fontawesome-webfont.woff2" />
     <Content Include="User\User.Master" />
+    <Content Include="Admin\assets\datatables\fonts\ionicons.ttf" />
+    <Content Include="Admin\assets\datatables\fonts\ionicons.woff" />
+    <Content Include="Admin\assets\datatables\fonts\themify.ttf" />
+    <Content Include="Admin\assets\datatables\fonts\themify.woff" />
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -272,6 +369,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Category\" />
+    <Folder Include="Images\Product\" />
+    <Folder Include="Images\User\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
@@ -299,11 +399,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
